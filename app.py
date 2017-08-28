@@ -145,17 +145,17 @@ class SearchEngine:
                 
         return ("", -1)
 
-
+''' Class to store index for reference '''
+searchEngine = SearchEngine()
+searchEngine.createIndex()
+    
 @app.route("/")
 def homepage():
     html = render_template('index.html')
     return html
 
 @app.route("/results")
-def results():
-    searchEngine = SearchEngine()
-    searchEngine.createIndex()
-    
+def results():    
     # Determine query type (one word or free text)
     q =  request.args.get('query')
     resIds = []
