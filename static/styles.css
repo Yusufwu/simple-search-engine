@@ -1,0 +1,11 @@
+.panel {
+  margin: 2% 10%;
+}
+
+.panel-body {
+  padding: 1em 2em 6em 2em;
+}
+
+.panel-body p {
+  margin-top: 2em;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Search Engine Results</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          {% include 'searchbox.html' %}
+
+          <p>Your search for <strong>"{{ query }}"</strong> returned <strong>{{ results | length }}</strong> matches.</p>
+          
+          <table class="table table-striped table-bordered">
+            <tbody>
+              {% for r in results %}
+                <tr>
+                  <td>{{ r }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        
+        {% include 'footer.html' %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
